@@ -1,4 +1,4 @@
-import { Employee } from "../model/Employee.js";
+import { Employee } from "../model/employee.js";
 const EMPLOYEES_STORAGE_KEY = "employees";
 
 export function saveEmployeesToLocalStorage(employees) {
