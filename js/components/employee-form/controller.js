@@ -41,14 +41,15 @@ export function createEmployeeFormController({ globalDispatch, formElements }) {
   const localDispatch = createLocalDispatch(deps);
 
   const { showBtn, hideBtn } = ui;
-  const { renderEmployeeForm } = renders;
-  const { closeBtn, employeeForm , addBtn, updateBtn} = formElements;
+  const { renderEmployeeForm, clearInputValidationState } = renders;
+  const { closeBtn, employeeForm, addBtn, updateBtn, inputs } = formElements;
   return {
     internal: { localDispatch },
     api: {
       ui: {
         /** Displays the 'update' button and hides the 'add' button for editing. */
         showFormUpdate: () => {
+          Object.entries(inputs).forEach(([type, el]) => clearInputValidationState(el));
           showBtn(updateBtn);
           hideBtn(addBtn);
 
@@ -56,6 +57,7 @@ export function createEmployeeFormController({ globalDispatch, formElements }) {
         /** Resets the form UI and prepares button states for creation. */
         showFormAdd: () => {
           employeeForm.reset();
+          Object.entries(inputs).forEach(([type, el]) => clearInputValidationState(el));
           showBtn(addBtn);
           hideBtn(updateBtn);
         },

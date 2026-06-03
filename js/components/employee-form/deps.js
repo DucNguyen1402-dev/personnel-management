@@ -1,6 +1,6 @@
 import { addEmployee, updateEmployee } from "./use-cases.js";
 import { showBtn, hideBtn } from "./ui.js";
-import { renderInputValidationState , renderEmployeeForm} from "./renders.js"
+import { renderInputValidationState , renderEmployeeForm, clearInputValidationState} from "./renders.js"
 import { extractFormValues } from "./mappers.js"
 import { validateInput } from "./validation/validation.js"
 
@@ -14,5 +14,5 @@ export const mappers = { extractFormValues };
 export const ui = {
     showBtn, hideBtn
 };
-export const renders = { renderInputValidationState,renderEmployeeForm  };
+export const renders = { renderInputValidationState,renderEmployeeForm, clearInputValidationState  };
 export const validation = { validateInput }

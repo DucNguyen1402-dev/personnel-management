@@ -39,14 +39,21 @@ export function renderInputValidationState({
 }
 
 
+export function clearInputValidationState(el) {
+  const errorUI = el.parentElement.parentElement.querySelector(".sp-thongbao");
+  errorUI.classList.remove(...ALL_CLASSES);
+  errorUI.classList.add("hidden");
+}
+
+
 /**
  * Fills the form input elements with data from an employee object.
  * @param {Object} params
  * @param {Object} params.employee - The source employee data object.
  * @param {Object} params.formElements - Collection of form DOM nodes containing the `inputs` mapping.
  */
-export function renderEmployeeForm({employee, formElements}){
-  Object.entries(formElements.inputs).forEach(([type, el]) =>{
-      el.value = employee[type];
+export function renderEmployeeForm({ employee, formElements }) {
+  Object.entries(formElements.inputs).forEach(([type, el]) => {
+    el.value = employee[type];
   })
 }
