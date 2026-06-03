@@ -1,0 +1,1 @@
+export {employeeState} from "../employee/store/global-state.js";
